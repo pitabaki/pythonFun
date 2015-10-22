@@ -22,3 +22,24 @@ print dateTest()
 import datetime
 everything = dir(datetime)
 print everything
+
+import calendar
+calendarOptions = dir(calendar)
+webCal = calendar.TextCalendar(calendar.SUNDAY)
+webCalOut = webCal.formatmonth(2015,1)
+print webCalOut
+
+statement = "Here are all of the calendar Classes"
+print statement
+print calendarOptions
+
+for m in range(1,13):
+	cal = calendar.monthcalendar(2015, m)
+	weekone = cal[0]
+	weektwo = cal[1]
+
+	if weekone[calendar.FRIDAY] != 0:
+		meetday = weekone[calendar.FRIDAY]
+	else:
+		meetday = weektwo[calendar.FRIDAY]
+	print "%15s %2d" % (calendar.month_name[m], meetday)
